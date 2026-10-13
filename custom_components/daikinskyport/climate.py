@@ -750,6 +750,9 @@ class Thermostat(ClimateEntity):
         elif self.hvac_mode == HVACMode.COOL:
             cool_temp = temp
             heat_temp = self.thermostat["hspHome"]
+        else:
+            return
+
         self.set_auto_temp_hold(heat_temp, cool_temp)
 
         self._cool_setpoint = cool_temp
